@@ -8,7 +8,7 @@ import {
 } from '../controllers/postController.js';
 
 const router = express.Router();
-const upload = multer({ dest: process.env.IMAGE_UPLOAD_DIR });
+import upload from '../middleware/uploadMiddleware.js'
 
 router.get('/',              getAllPosts);
 router.get('/user/:userId',  getPostsByUser);

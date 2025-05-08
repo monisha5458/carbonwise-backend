@@ -6,7 +6,6 @@ import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import postRoutes from './routes/postRoutes.js';
 import carbonRoutes from './routes/carbonRoutes.js';
-import serveUploads from './middleware/serveUploads.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -29,7 +28,7 @@ const __dirname = dirname(__filename);
 app.use(express.urlencoded({ extended: true })); // ✅ ADD THIS
 // Serve uploaded images
 // Serve static files from the uploads directory
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 //app.use('/uploads', serveUploads);
 
 
